@@ -22,7 +22,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    fetch('https://my-duka-back-end.vercel.app/login', {
+    fetch('https://myduka-server.vercel.app/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

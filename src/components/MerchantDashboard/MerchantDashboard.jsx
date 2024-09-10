@@ -29,14 +29,14 @@ const MerchantDashboard = () => {
   };
 
   useEffect(() => {
-    fetch("https://my-duka-back-end.vercel.app/getAdmins")
+    fetch("https://myduka-server.vercel.app/getAdmins")
       .then((response) => response.json())
       .then((data) => setAdmins(data))
       .catch((error) => console.error(error));
   }, []);
 
   useEffect(() => {
-    fetch("https://my-duka-back-end.vercel.app/stores")
+    fetch("https://myduka-server.vercel.app/stores")
       .then((res) => res.json())
       .then((data) => setStores(data))
       .catch((error) => console.error(error));
@@ -61,7 +61,7 @@ const MerchantDashboard = () => {
 
   const handleAddStoreSubmit = () => {
     // Implementation for adding the product
-    fetch(`https://my-duka-back-end.vercel.app/addStore`, {
+    fetch(`https://myduka-server.vercel.app/addStore`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -13,7 +13,7 @@ function ResetPassword() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`https://my-duka-back-end.vercel.app/api/reset_password/${token}`, {
+      const response = await fetch(`https://myduka-server.vercel.app/api/reset_password/${token}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({role, password }),

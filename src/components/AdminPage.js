@@ -88,7 +88,7 @@ const AdminPage = () => {
 
   const handleAddProductSubmit = () => {
     // Implementation for adding the product
-    fetch(`https://my-duka-back-end.vercel.app/addProduct/${store_id}`,{
+    fetch(`https://myduka-server.vercel.app/addProduct/${store_id}`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -132,7 +132,7 @@ const AdminPage = () => {
 
   const handleSaveClick = (productId) => {
     // Save the edited values here, probably via an API call
-    fetch(`https://my-duka-back-end.vercel.app/updateProduct/${productId}`, {
+    fetch(`https://myduka-server.vercel.app/updateProduct/${productId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -166,16 +166,16 @@ const AdminPage = () => {
     // Fetch all required data
 
     const fetchSales = fetch(
-      `https://my-duka-back-end.vercel.app/sales/${store_id}`
+      `https://myduka-server.vercel.app/sales/${store_id}`
     ).then((res) => res.json());
     const fetchRequests = fetch(
-      `https://my-duka-back-end.vercel.app/requests/${store_id}`
+      `https://myduka-server.vercel.app/requests/${store_id}`
     ).then((res) => res.json());
     const fetchProducts = fetch(
-      `https://my-duka-back-end.vercel.app/getProducts/${store_id}`
+      `https://myduka-server.vercel.app/getProducts/${store_id}`
     ).then((res) => res.json());
     const fetchClerks = fetch(
-      `https://my-duka-back-end.vercel.app/getClerk/${store_id}`
+      `https://myduka-server.vercel.app/getClerk/${store_id}`
     ).then((res) => res.json());
 
     Promise.all([fetchSales, fetchRequests, fetchProducts, fetchClerks])
@@ -201,7 +201,7 @@ const AdminPage = () => {
 
 
   const handleApproveRequest = (id) => {
-    fetch(`https://my-duka-back-end.vercel.app/acceptRequests/${id}`)
+    fetch(`https://myduka-server.vercel.app/acceptRequests/${id}`)
       .then((res) => res.json())
       .then((data) => console.log(data))
       .then(() => setRefreshData((prev) => !prev));
@@ -210,7 +210,7 @@ const AdminPage = () => {
   };
 
   const handleDeclineRequest = (id) => {
-    fetch(`https://my-duka-back-end.vercel.app/acceptRequests/${id}`, {
+    fetch(`https://myduka-server.vercel.app/acceptRequests/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -221,7 +221,7 @@ const AdminPage = () => {
   };
 
   const handleMarkAsPaid = (id) => {
-    fetch(`https://my-duka-back-end.vercel.app/paymentStatus/${id}`)
+    fetch(`https://myduka-server.vercel.app/paymentStatus/${id}`)
       .then((res) => res.json())
       .then((data) => console.log(data));
 
@@ -230,7 +230,7 @@ const AdminPage = () => {
 
   const handleAddClerk = () => {
     if (newClerkName.trim() && newClerkEmail.trim()) {
-      fetch("https://my-duka-back-end.vercel.app/inviteClerk", {
+      fetch("https://myduka-server.vercel.app/inviteClerk", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -258,7 +258,7 @@ const AdminPage = () => {
   const handleRemoveClerk = async (id) => {
     try {
       const response = await fetch(
-        `https://my-duka-back-end.vercel.app/clerkAccountStatus/${id}`,
+        `https://myduka-server.vercel.app/clerkAccountStatus/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -281,7 +281,7 @@ const AdminPage = () => {
   const handleInactivateClerk = async (id) => {
     try {
       fetch(
-        `https://my-duka-back-end.vercel.app/clerkAccountStatus/${id}`
+        `https://myduka-server.vercel.app/clerkAccountStatus/${id}`
       ).then((response) => {
         if (response.ok) {
           console.log(`Inactivated clerk`);

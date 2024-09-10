@@ -8,7 +8,7 @@ const AddAdminForm = ({ onClose }) => {
 
 
     useEffect(()=>{
-        fetch("https://my-duka-back-end.vercel.app/stores")
+        fetch("https://myduka-server.vercel.app/stores")
         .then(res=>res.json())
         .then(data=>setStores(data))
 
@@ -30,7 +30,7 @@ const AddAdminForm = ({ onClose }) => {
             return;
         }
 
-        fetch("https://my-duka-back-end.vercel.app/inviteAdmin",{
+        fetch("https://myduka-server.vercel.app/inviteAdmin",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json",

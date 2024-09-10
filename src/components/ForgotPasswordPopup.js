@@ -9,7 +9,7 @@ const ForgotPasswordPopup = ({ onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://my-duka-back-end.vercel.app/api/reset_password_request', {
+      const response = await fetch('https://myduka-server.vercel.app/api/reset_password_request', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email,role }),

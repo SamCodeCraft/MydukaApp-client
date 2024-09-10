@@ -30,7 +30,7 @@ const ClerksPage = () => {
   const store_id = user.store_id;
 
   useEffect(() => {
-    fetch(`https://my-duka-back-end.vercel.app/getProducts/${store_id}`)
+    fetch(`https://myduka-server.vercel.app/getProducts/${store_id}`)
       .then(res => res.json())
       .then(data => setInventory(data));
   }, [truthValue,user, store_id,sales]);
@@ -38,7 +38,7 @@ const ClerksPage = () => {
 
 
   useEffect(() => {
-    fetch(`https://my-duka-back-end.vercel.app/sales/${store_id}`)
+    fetch(`https://myduka-server.vercel.app/sales/${store_id}`)
       .then(res => res.json())
       .then(data => setSales(data.sales.filter(sale => sale.clerk_id === user.id)))
 
@@ -90,7 +90,7 @@ const ClerksPage = () => {
 
   const handleAddSoldItem = (soldItem) => {
 
-      fetch(`https://my-duka-back-end.vercel.app/sales/${store_id}`,{
+      fetch(`https://myduka-server.vercel.app/sales/${store_id}`,{
         method:"POST",
         headers:{
           "Content-Type":"application/json"
@@ -157,7 +157,7 @@ const ClerksPage = () => {
     setEditingItemId(null);
   
      
-      fetch(`https://my-duka-back-end.vercel.app/updateProduct/${itemId}`, {
+      fetch(`https://myduka-server.vercel.app/updateProduct/${itemId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

@@ -26,7 +26,7 @@ const App = () => {
   useEffect(() => {
     const token = localStorage.getItem('access_token');
     if (token) {
-      fetch('https://my-duka-back-end.vercel.app/check_session', {
+      fetch('https://myduka-server.vercel.app/check_session', {
         headers: {
           'Authorization': `Bearer ${token}`
         }

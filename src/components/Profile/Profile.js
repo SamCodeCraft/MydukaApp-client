@@ -31,7 +31,7 @@ const Profile = ({ onClose }) => {
         console.log(userDetails);
         
        
-        fetch(`https://my-duka-back-end.vercel.app/editUser/${user.id}`,
+        fetch(`https://myduka-server.vercel.app/editUser/${user.id}`,
             {
                 method:"PATCH",
                 headers:{

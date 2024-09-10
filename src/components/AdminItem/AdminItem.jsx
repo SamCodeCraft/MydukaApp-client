@@ -14,7 +14,7 @@ const AdminItem = ({ admin,removeAdmin }) => {
         
         
         try {
-            const response = await fetch(`https://my-duka-back-end.vercel.app/adminAccountStatus/${admin.id}`, {
+            const response = await fetch(`https://myduka-server.vercel.app/adminAccountStatus/${admin.id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ const AdminItem = ({ admin,removeAdmin }) => {
 
     const handleInactivate = async () => {
         try {
-            fetch(`https://my-duka-back-end.vercel.app/adminAccountStatus/${admin.id}`)
+            fetch(`https://myduka-server.vercel.app/adminAccountStatus/${admin.id}`)
             .then(response=>{
                 if (response.ok) {
                     

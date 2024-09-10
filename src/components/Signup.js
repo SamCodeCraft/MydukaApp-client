@@ -29,7 +29,7 @@ export default function Signup() {
   
    
     if (formData.password === formData.confirmPassword)  {
-      fetch("https://my-duka-back-end.vercel.app/signup",{
+      fetch("https://myduka-server.vercel.app/signup",{
         method:"POST",
         headers: {
           'Content-Type': 'application/json'
@@ -75,7 +75,7 @@ export default function Signup() {
 
 
   useEffect(() => {
-    fetch('https://my-duka-back-end.vercel.app/validate-token', {
+    fetch('https://myduka-server.vercel.app/validate-token', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token }),
