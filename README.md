@@ -1,70 +1,131 @@
-# Getting Started with Create React App
+# MyDuka API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+MyDuka API is an advanced inventory management system designed to simplify stock-taking, transaction tracking, and reporting for retail businesses. This RESTful API provides robust features for managing inventory, generating detailed sales reports, and optimizing store operations. Built with Flask on the backend, MyDuka API is highly scalable, secure, and designed to integrate easily with various frontend applications, providing a seamless user experience.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+- [Features](#features)
+- [Technologies](#technologies)
+- [API Documentation](#api-documentation)
+  - [Authentication](#authentication)
+  - [Products](#products)
+  - [Transactions](#transactions)
+  - [Reporting](#reporting)
+- [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+- [Usage](#usage)
+- [Testing](#testing)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The MyDuka API aims to revolutionize inventory and sales management for small to medium-sized businesses. With this API, store managers can keep track of stock levels, visualize sales data, generate custom reports, and automate daily processes, making store management both efficient and scalable.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This project was built with the focus of providing a backend service that can be integrated with different client-facing interfaces, whether web or mobile applications.
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Inventory Management:** Manage product listings, including stock levels, pricing, and categorization.
+- **Sales Tracking:** Record sales transactions and generate detailed sales reports.
+- **Real-Time Stock Updates:** Automatically update inventory levels as transactions occur.
+- **Comprehensive Reporting:** Generate daily, weekly, monthly, and yearly sales and inventory reports.
+- **User Authentication:** Secure user authentication for store managers and clerks with role-based access control.
+- **Multi-store Support:** Manage inventory across multiple store locations.
+- **Customizable Reports:** Generate CSV or JSON format reports for accounting or analytics purposes.
+- **RESTful Design:** Fully RESTful API that allows for easy integration with any frontend platform.
 
-### `npm run build`
+## Technologies
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Backend:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Flask:** Python web framework used to build the RESTful API.
+- **Flask-RESTful:** Extension for creating RESTful routes.
+- **PostgreSQL:** Relational database for managing product and transaction data.
+- **SQLAlchemy:** ORM for database interaction.
+- **Flask-JWT-Extended:** For secure authentication using JSON Web Tokens (JWT).
+- **Marshmallow:** For data serialization and validation.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Tools & Libraries:**
 
-### `npm run eject`
+- **Docker:** Containerization for ease of deployment.
+- **Swagger:** API documentation and testing.
+- **PyTest:** Unit testing for API endpoints.
+- **GitHub Actions:** Continuous Integration and testing pipelines.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## API Documentation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The MyDuka API provides various endpoints to manage products, sales, and reporting.  For more detailed API documentation, please visit the Swagger UI available at `/api/docs`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Authentication
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+| Method | Endpoint        | Description                     
+| :----- | :-------------- | :------------------------------ 
+| POST   | /auth/login     | Login to the system using JWT  
+| POST   | /auth/register  | Register a new user            
 
-## Learn More
+### Products
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Method | Endpoint        | Description                               
+| :----- | :-------------- | :---------------------------------------- 
+| GET    | /products       | Retrieve a list of all products           
+| POST   | /products       | Add a new product                        
+| GET    | /products/<id>  | Get product details by ID                 
+| PUT    | /products/<id>  | Update product details                    
+| DELETE | /products/<id>  | Delete a product                         
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Transactions
 
-### Code Splitting
+| Method | Endpoint           | Description                                     
+| :----- | :---------------- | :---------------------------------------------- 
+| POST   | /transactions      | Record a new sales transaction                 
+| GET    | /transactions      | Get all sales transactions                     
+| GET    | /transactions/<id> | Get details of a specific transaction          
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Reporting
 
-### Analyzing the Bundle Size
+| Method | Endpoint            | Description                         
+| :----- | :------------------ | :---------------------------------- 
+| GET    | /reports/daily      | Get daily sales report              
+| GET    | /reports/monthly    | Get monthly sales report             
+| GET    | /reports/annual     | Get annual sales report              
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Installation
 
-### Making a Progressive Web App
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Before you begin, ensure that you have the following installed:
 
-### Advanced Configuration
+- Python 3.8+
+- PostgreSQL
+- Docker (Optional for containerized environments)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+We welcome contributions to improve MyDuka API! Here's how you can get involved:
 
-### `npm run build` fails to minify
+1. **Fork the repository:** Start by creating your own copy of the repository.
+2. **Create a new branch:** Create a new branch for your feature or bug fix. (e.g., `git checkout -b feature-my-new-feature` or `git checkout -b bugfix-issue-123`)
+3. **Make your changes:** Implement your improvements, adding tests where appropriate.
+4. **Commit your changes:** Commit your changes with clear and descriptive commit messages.
+5. **Push to your branch:** Push your changes to your forked repository.
+6. **Open a pull request:** Submit a pull request to the main repository, explaining your changes in detail.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+Have questions, need support, or want to provide feedback? Feel free to reach out:
+
+- **Email:** siyajalis@gmail.com
+- **LinkedIn:** [Samuel Siyajari](https://linkedin.com/in/samuel-siyajari-970365167) 
+- **GitHub:** [Your GitHub Profile](https://github.com/SamCodeCraft/MydukaApp-client) 
+
+
+
+
